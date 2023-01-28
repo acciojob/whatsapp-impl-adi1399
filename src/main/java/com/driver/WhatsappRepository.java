@@ -91,5 +91,33 @@ public class WhatsappRepository {
         return false;
     }
 
+    public String findMessage(Date start, Date end, int K) throws Exception{
+        //This is a bonus problem and does not contains any marks
+        // Find the Kth latest message between start and end (excluding start and end)
+        // If the number of messages between given time is less than K, throw "K is greater than the number of messages" exception
+
+        String message=null;
+        boolean flag=false;
+        for(Date i: Message.record.keySet()){
+            if(i.equals(end)){
+                if(K>0) {
+                    throw new Exception("K is greater than the number of messages");
+                }
+            }
+            if(flag){
+                K--;
+                if(K==0){
+                    message=Message.record.get(i);
+                    break;
+                }
+            }
+            if(i.equals(start)){
+                flag=true;
+            }
+
+        }
+
+        return message;
+    }
 
 }
