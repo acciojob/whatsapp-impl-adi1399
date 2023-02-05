@@ -5,26 +5,35 @@ import java.util.List;
 
 @Service
 public class WhatsappService {
-    WhatsappRepository whatsappRepository = new WhatsappRepository() ;
+    WhatsappRepository whatsappRepository = new WhatsappRepository();
 
-
-    public String createUser(String name, String mobile) throws Exception{
-      return   whatsappRepository.createUser(name, mobile);
+    public String createUser(String name, String mobile) throws Exception {
+        return whatsappRepository.createUser(name, mobile);
     }
 
-    public Group createGroup(List<User> users) {
+    public Group createGroup(List<User> users){
+
         return whatsappRepository.createGroup(users);
     }
 
-    public int createMessage(String content) {
+    public int createMessage(String content){
+
         return whatsappRepository.createMessage(content);
     }
 
-    public int sendMessage(Message message, User sender, Group group) throws Exception {
+    public int sendMessage(Message message, User sender, Group group) throws Exception{
         return whatsappRepository.sendMessage(message, sender, group);
     }
 
-    public String changeAdmin(User approver, User user, Group group) throws Exception {
+    public String changeAdmin(User approver, User user, Group group) throws Exception{
         return whatsappRepository.changeAdmin(approver, user, group);
+    }
+
+    public int removeUser(User user) throws Exception{
+        return whatsappRepository.removeUser(user);
+    }
+
+    public String findMessage(Date start, Date end, int K) throws Exception{
+        return whatsappRepository.findMessage(start, end, K);
     }
 }
