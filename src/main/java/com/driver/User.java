@@ -4,9 +4,9 @@ import java.util.HashSet ;
 public class User {
     private String name;
     private String mobile;
-   // static HashSet < String > set ;
+    static HashSet < String > set ;
     public User(String name, String mobile) {
-     //   new HashSet<>() ;
+        new HashSet<>() ;
         this.name = name ;
         this.mobile = mobile ;
     }
